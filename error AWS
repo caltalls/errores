@@ -1,0 +1,54 @@
+Response:
+{
+  "errorMessage": "HTTPSConnectionPool(host='caltalls.duckdns.org', port=443): Max retries exceeded with url: /api/alexa/smart_home (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fee9e9f4d10>: Failed to establish a new connection: [Errno 111] Connection refused'))",
+  "errorType": "MaxRetryError",
+  "stackTrace": [
+    "  File \"/var/task/lambda_function.py\", line 65, in lambda_handler\n    body=json.dumps(event).encode('utf-8'),\n",
+    "  File \"/var/runtime/urllib3/request.py\", line 80, in request\n    method, url, fields=fields, headers=headers, **urlopen_kw\n",
+    "  File \"/var/runtime/urllib3/request.py\", line 171, in request_encode_body\n    return self.urlopen(method, url, **extra_kw)\n",
+    "  File \"/var/runtime/urllib3/poolmanager.py\", line 330, in urlopen\n    response = conn.urlopen(method, u.request_uri, **kw)\n",
+    "  File \"/var/runtime/urllib3/connectionpool.py\", line 760, in urlopen\n    **response_kw\n",
+    "  File \"/var/runtime/urllib3/connectionpool.py\", line 760, in urlopen\n    **response_kw\n",
+    "  File \"/var/runtime/urllib3/connectionpool.py\", line 760, in urlopen\n    **response_kw\n",
+    "  File \"/var/runtime/urllib3/connectionpool.py\", line 720, in urlopen\n    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]\n",
+    "  File \"/var/runtime/urllib3/util/retry.py\", line 436, in increment\n    raise MaxRetryError(_pool, url, error or ResponseError(cause))\n"
+  ]
+}
+
+Request ID:
+"946ed03d-bba2-4bd5-9167-d130899d0128"
+
+Function Logs:
+START RequestId: 946ed03d-bba2-4bd5-9167-d130899d0128 Version: $LATEST
+[DEBUG]	2020-04-18T02:15:18.73Z	946ed03d-bba2-4bd5-9167-d130899d0128	Event: {'directive': {'header': {'namespace': 'Alexa.Discovery', 'name': 'Discover', 'payloadVersion': '3', 'messageId': '1bd5d003-31b9-476f-ad03-71d471922820'}, 'payload': {'scope': {'type': 'BearerToken'}}}}
+
+[WARNING]	2020-04-18T02:15:18.265Z	946ed03d-bba2-4bd5-9167-d130899d0128	Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fee9e9f46d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/alexa/smart_home
+
+[WARNING]	2020-04-18T02:15:18.312Z	946ed03d-bba2-4bd5-9167-d130899d0128	Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fee9e9f49d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/alexa/smart_home
+
+[WARNING]	2020-04-18T02:15:18.368Z	946ed03d-bba2-4bd5-9167-d130899d0128	Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fee9e9f4b50>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/alexa/smart_home
+
+[ERROR] MaxRetryError: HTTPSConnectionPool(host='caltalls.duckdns.org', port=443): Max retries exceeded with url: /api/alexa/smart_home (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fee9e9f4d10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Traceback (most recent call last):
+  File "/var/task/lambda_function.py", line 65, in lambda_handler
+    body=json.dumps(event).encode('utf-8'),
+  File "/var/runtime/urllib3/request.py", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "/var/runtime/urllib3/request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/var/runtime/urllib3/poolmanager.py", line 330, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/var/runtime/urllib3/connectionpool.py", line 760, in urlopen
+    **response_kw
+  File "/var/runtime/urllib3/connectionpool.py", line 760, in urlopen
+    **response_kw
+  File "/var/runtime/urllib3/connectionpool.py", line 760, in urlopen
+    **response_kw
+  File "/var/runtime/urllib3/connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/var/runtime/urllib3/util/retry.py", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+END RequestId: 946ed03d-bba2-4bd5-9167-d130899d0128
+REPORT RequestId: 946ed03d-bba2-4bd5-9167-d130899d0128	Duration: 354.79 ms	Billed Duration: 400 ms	Memory Size: 128 MB	Max Memory Used: 50 MB	Init Duration: 144.05 ms	
+
+                
